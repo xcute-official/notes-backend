@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  html{
+    --color-background: #0a0a0a;
+    --color-foreground: #e3e3e3;
+    --color-primary: #8100cc;
+    --color-foreground-200: #767676;
+  }
+}
