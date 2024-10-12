@@ -1,7 +1,9 @@
 import React from 'react'
 import NoteForm from '../_components/note-form';
-
-const page = async ({params}: any) => {
+interface ParamsTyp {
+  id: string;
+}
+const page = async ({params}: {params: ParamsTyp;}) => {
     const id = params.id;
   return (
     <div className=''>

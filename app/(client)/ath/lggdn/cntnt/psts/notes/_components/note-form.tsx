@@ -57,7 +57,7 @@ const NoteForm: React.FC<NoteFormProps> = ({id}) => {
       init();
     }
   }, []);
-  const onSubmit: SubmitHandler<FieldValues> = async (data: any)=>{
+  const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues)=>{
     setIsLoading(false);
     setError('');
     setSuccess('');

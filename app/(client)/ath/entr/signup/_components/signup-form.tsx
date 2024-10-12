@@ -1,11 +1,12 @@
 "use client";
-import prismadb from '@/app/libs/prismadb';
 import { SignupSchema } from '@/app/schemas/validations';
-import { register } from 'module';
+
 import React, { useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '@/app/components/ui/inputs';
 import { LoadingButton } from '@/app/components/ui/buttons';
+import ErrorMessage from '@/app/components/ui/error-message';
+import SuccessMessage from '@/app/components/ui/success-message';
 const SignupForm = () => {
     const [error, setError] = useState<string>('');
     const [success, setSuccess] = useState<string>('');
@@ -23,7 +24,7 @@ const SignupForm = () => {
             email: ''
         }
     });
-    const onSubmit: SubmitHandler<FieldValues> = async (data: any)=>{
+    const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues)=>{
         setIsLoading(true);
         const validatedData = SignupSchema.safeParse(data);
         if(!validatedData.success){
@@ -55,6 +56,8 @@ const SignupForm = () => {
                 <Input disabled={isLoading} register={register} errors={errors} id='email'/>
                 <Input disabled={isLoading} register={register} errors={errors} id='password'/>
             </div>
+            <ErrorMessage message={error}/>
+            <SuccessMessage message={success}/>
             <LoadingButton disabled={isLoading} type='submit' texts={["signup", "signing up"]}/>
         </form>
     </div>
