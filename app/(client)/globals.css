@@ -10,4 +10,13 @@
     --color-primary: #8100cc;
     --color-foreground-200: #767676;
   }
+  h1{
+    @apply text-5xl font-bold
+  }
+  h3{
+    @apply text-3xl
+  }
+  h5{
+    @apply text-xl
+  }
 }

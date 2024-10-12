@@ -25,7 +25,7 @@ export const EditorExtensions = [
     StarterKit.configure({
         code: {
             HTMLAttributes: {
-                class: "font-mono p-1" 
+                class: "font-mono font-semibold py-1 bg-slate-800 rounded-sm px-1" 
             }
         },  
         bulletList: {
@@ -35,14 +35,19 @@ export const EditorExtensions = [
         },
         paragraph: {
             HTMLAttributes: {
-                class: 'p-2'
+                class: ''
+            }
+        },
+        heading: {
+            HTMLAttributes: {
+
             }
         }
     }),
     CodeBlockLowlight.configure({
         lowlight: LowLight,
         HTMLAttributes: {
-            class: "p-2 rounded-sm font-mono text-xs border m-4"
+            class: "p-2 rounded-sm font-mono text-xs border"
         }
     }),
     Underline.configure({
