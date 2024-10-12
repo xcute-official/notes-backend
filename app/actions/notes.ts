@@ -89,6 +89,47 @@ export const read = async (id: string)=>{
         }
     }
 }
+export const readBySlug = async (slug: string)=>{
+    if(!slug){
+        return {
+            message: "Invalid details",
+            status: 401
+        }
+    }
+    try{
+        const response: any = await prismadb.post.findUnique({
+            where: {
+                slug: slug
+            },
+            include: {
+                user: true
+            }
+        });
+        if(response?.id){
+            return {
+                message: "Note reading, success",
+                status: 201,
+                data: {
+                    ...response.body,
+                    updatedAt: formatDate(response.updatedAt),
+                    user: {
+                        username: response.user.username
+                    }
+                }
+            }
+        }else{
+            return {
+                message: "Note reading, failed",
+                status: 500
+            }
+        }
+    }catch(error){
+        return {
+            message: "Note reading, failed",
+            status: 501
+        }
+    }
+}
 export const update = async (data: z.infer<typeof NoteUpdateSchema>)=>{
     const validatedData = NoteUpdateSchema.safeParse(data);
     if(!validatedData.success){
@@ -114,7 +155,8 @@ export const update = async (data: z.infer<typeof NoteUpdateSchema>)=>{
         if(response?.id){
             return {
                 message: "Note updated, success",
-                status: 200
+                status: 200,
+                data: {}
             }
         }else{
             return {
@@ -180,7 +222,8 @@ export const getAllNotes = async ()=>{
                     user: {
                         username: item.user.username
                     },
-                    id: item.id
+                    id: item.id,
+                    slug: item.slug
                 }
             ))
             return filteredResponse;

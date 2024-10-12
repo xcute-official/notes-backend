@@ -15,11 +15,10 @@ interface NoteFormProps {
   id: string;
 }
 const NoteForm: React.FC<NoteFormProps> = ({id}) => {
-  const [formState, setFormState] = useState<number>(1);
+  const [formState, setFormState] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  console.log(id);
   const {
     register,
     handleSubmit,
@@ -41,10 +40,11 @@ const NoteForm: React.FC<NoteFormProps> = ({id}) => {
       const init = async ()=>{
         try{
           const response: any = await readNote(id);
-          if(response?.id){
-            setValue('title', response.title);
-            setValue('content', response.content);
-            setValue('description', response.description);
+          if(response?.data){
+            const {title, content, description} = response.data;
+            setValue('title', title);
+            setValue('content', content);
+            setValue('description', description);
           }else{
             setFormState(10);
           }
@@ -54,6 +54,7 @@ const NoteForm: React.FC<NoteFormProps> = ({id}) => {
           setIsLoading(false);
         }
       }
+      init();
     }
   }, []);
   const onSubmit: SubmitHandler<FieldValues> = async (data: any)=>{

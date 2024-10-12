@@ -13,10 +13,11 @@ export const formatDate = (date:string)=>{
 
 
 import { JSONContent } from "@tiptap/react";
-import { generateHTML } from "@tiptap/react";
+import { generateHTML } from "@tiptap/html";
 import { EditorExtensions } from "../components/ui/richTextInput/Extensions";
-export const giveHTML = (jsonData: JSONContent)=>{
-    return generateHTML(jsonData, EditorExtensions);
+export const giveHTML = async (jsonData: JSONContent)=>{
+    const html = await generateHTML(jsonData, EditorExtensions);
+    return html;
 }
 
 

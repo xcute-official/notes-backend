@@ -17,7 +17,6 @@ const NoteItem: React.FC<NoteItemProps> = ({title, slug, updatedAt, index, id}) 
     const [isDeleted, setIsDeleted] = useState<boolean>(false);
     const handleNoteDelete = async (identifier: string)=>{
         console.log("Deletion", identifier, id);
-
         try{
             const response: any = await deleteNote(identifier);
             console.log(`Response: `, response);
@@ -36,7 +35,7 @@ const NoteItem: React.FC<NoteItemProps> = ({title, slug, updatedAt, index, id}) 
   return !isDeleted ? (
     <li className='flex items-center gap-2 w-full px-4'>
         <span className='w-16 text-center'>{index}</span>    
-        <Link href={`/`} className='w-full'>
+        <Link href={`/notes/${slug}`} className='w-full'>
             <span>{title}</span>
         </Link>
         <div className='items-center flex gap-2'>
