@@ -9,7 +9,7 @@ interface NotesListProps {
 
 const NotesList: React.FC<NotesListProps> = ({notes}) => {
   return (
-    <ul className='w-full flex flex-col gap-2'>
+    <ul className='w-full flex flex-col gap-4'>
         {
             notes.map(({id, slug, title, updatedAt}: any, index: number)=>(
                 <NoteItem id={id} slug={slug} title={title} updatedAt={updatedAt} index={index+1} key={index}/>

@@ -13,7 +13,10 @@ const page = async ({searchParams}: Props) => {
   const notes: any[] | null = await getAllNotes();
   return (
     <div className='w-screen min-h-screen px-4 py-4'>
-      <section className='w-full mx-auto md:w-1/2 flex flex-col gap-4'>
+      <section className='w-full mx-auto md:w-1/2 flex flex-col gap-8'>
+        <div>
+          <h1 className='text-center font-bold text-primary'>Explore my notes</h1>
+        </div>
         <SearchForm />
         <Filters />
         <div className='w-full'>

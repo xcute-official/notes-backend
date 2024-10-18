@@ -5,10 +5,20 @@
 
 @layer base{
   html{
-    --color-background: #0a0a0a;
-    --color-foreground: #e3e3e3;
-    --color-primary: #8100cc;
-    --color-foreground-200: #767676;
+    --color-background: #d5def5;
+    --color-foreground: #430f58;
+    --color-primary: #6643b5;
+    --color-foreground-200: #d4d4d4;
+    --color-background-100: #0a0a0a;
+    --color-background-200: #0a0a0a;
+    --color-foreground-100: #767676;
+    --color-secondary: #8594e4;
+  }
+  html[data-theme="dark"]{
+    --color-background: #111416;
+    --color-foreground: #ffffff;
+    --color-secondary: #e3f6f5;
+    --color-primary: #00ff33;
   }
   h1{
     @apply text-5xl font-bold

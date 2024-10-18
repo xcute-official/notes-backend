@@ -22,7 +22,7 @@ const ReadingNote: React.FC<ReadingNoteProps> = ({content, title, description, u
         <h1 className='text-5xl font-bold text-primary'>{title}</h1>
         <h2 className='text-xl font'>{description}</h2>
         <span className="text-xs">{updatedAt}</span>
-        <div dangerouslySetInnerHTML={{__html: htmlContent}}>
+        <div dangerouslySetInnerHTML={{__html: htmlContent}} className='flex flex-col gap-4'>
           
         </div>
     </div>

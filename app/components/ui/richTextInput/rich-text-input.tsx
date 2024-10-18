@@ -25,7 +25,7 @@ const RichTextInput: React.FC<RichTextInputProps> = ({setContent, disabled, cont
         },
         editorProps: {
             attributes: {
-                class: 'outline-none text-sm h-full w-full border rounded-md p-2 overflow-scroll flex flex-col gap-2',
+                class: 'outline-none text-sm w-full h-72 border rounded-md p-2 overflow-scroll flex flex-col gap-2',
                 spellcheck: "false",
             }
         },

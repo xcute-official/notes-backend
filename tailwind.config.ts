@@ -12,7 +12,11 @@ const config: Config = {
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
         primary: "var(--color-primary)",
-        'foreground-200': "var(--color-foreground-200)"
+        secondary: "var(--color-secondary)",
+        'foreground-200': "var(--color-foreground-200)",
+        'foreground-100': "var(--color-foreground-100)",
+        'background-200': "var(--color-background-200)",
+        'background-100': "var(--color-background-100)",
       },
     },
   },

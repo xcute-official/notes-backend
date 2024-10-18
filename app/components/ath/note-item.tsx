@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/buttons';
-import { BiEdit } from 'react-icons/bi';
+import { BiEdit, BiTrash } from 'react-icons/bi';
 import { LuDelete } from 'react-icons/lu';
 import { FiDelete } from 'react-icons/fi';
 import { deleteNote } from '@/app/actions/notes';
@@ -33,16 +33,15 @@ const NoteItem: React.FC<NoteItemProps> = ({title, slug, updatedAt, index, id}) 
         }
     }
   return !isDeleted ? (
-    <li className='flex items-center gap-2 w-full px-4'>
-        <span className='w-16 text-center'>{index}</span>    
-        <Link href={`/notes/${slug}`} className='w-full'>
+    <li className='flex items-center gap-2 w-full px-4' >    
+        <Link href={`/notes/${slug}`} className='w-full font-light'>
             <span>{title}</span>
         </Link>
         <div className='items-center flex gap-2'>
-            <Link href={`/ath/lggdn/cntnt/psts/notes/${id}`}>
+            <Link href={`/ath/lggdn/cntnt/psts/notes/${id}`} className=''>
                 <span><BiEdit className='w-6 h-6'/></span>
             </Link>
-            <span onClick={()=>handleNoteDelete(id)}><FiDelete className='w-6 h-6 cursor-pointer'/></span>
+            <span onClick={()=>handleNoteDelete(id)}><BiTrash className='w-6 h-6 cursor-pointer text-red-500'/></span>
         </div>
     </li>
   ):null

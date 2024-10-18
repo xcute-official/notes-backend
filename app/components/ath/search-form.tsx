@@ -30,9 +30,9 @@ const SearchForm = () => {
         return ()=>clearTimeout(delayDebounceFunction);
     }, [search]);
   return (
-    <div className='flex items-center gap-2 border p-2 rounded-md'>
+    <div className='flex items-center gap-2 border px-4 py-2 rounded-md'>
         <label htmlFor="search"><FaMagnifyingGlass className='w-4 h-4'/></label>
-        <input type="text" placeholder='search here....' onChange={(e:any)=>setSearch(e.target.value)} id="search" className='outline-none bg-transparent text-foreground w-full text-sm' />
+        <input type="text" placeholder='search here....' onChange={(e:any)=>setSearch(e.target.value)} id="search" className='outline-none bg-transparent text-foreground w-full text-sm p-2' />
     </div>
   )
 }
